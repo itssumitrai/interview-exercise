@@ -1,11 +1,38 @@
 import '../styles/checkout.css';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import TicketItem from './TicketItem';
+import Total from './Total';
 
-const Checkout = ({ event }) => {
+const Checkout = ({ event, lang }) => {
     const { name, logo, start, end, ticket_classes } = event;
+    const [selectedTickets, setSelectedTickets] = useState(
+        new Array(ticket_classes.length).fill(0)
+    );
+    const [isEmpty, setEmpty] = useState(true);
     function handlePlaceOrder(e) {
         e.preventDefault();
+        // fetch(`/api/events/${eventId}`)
+        //     .then((response) => response.json())
+        //     .then((payload) => setEvent(payload));
+    }
+    function handleTicketChange(ticketIndex, quantity) {
+        // ticket changed
+        selectedTickets[ticketIndex] = quantity;
+        let noTickers = true;
+        for (let i = 0; i < selectedTickets.length; i++) {
+            if (selectedTickets[i] > 0) {
+                noTickers = false;
+                break;
+            }
+        }
+        if (isEmpty && !noTickers) {
+            setEmpty(false);
+        } else if (!isEmpty && noTickers) {
+            setEmpty(true);
+        }
+
+        setSelectedTickets([...selectedTickets]);
     }
 
     return (
@@ -19,9 +46,15 @@ const Checkout = ({ event }) => {
                 </header>
                 <article className="check-ticketing">
                     <ul className="ticket-list">
-                        {ticket_classes.map((ticket) => {
+                        {ticket_classes.map((ticket, index) => {
                             return (
-                                <TicketItem key={ticket.id} ticket={ticket} start={start} />
+                                <TicketItem
+                                    key={ticket.id}
+                                    index={index}
+                                    ticket={ticket}
+                                    start={start}
+                                    onChange={handleTicketChange}
+                                />
                             );
                         })}
                     </ul>
@@ -42,7 +75,7 @@ const Checkout = ({ event }) => {
                 </article>
                 <footer>
                     <div className="footer-container">
-                        <button type="submit" className="checkoutBtn" disabled>
+                        <button type="submit" className="checkoutBtn" disabled={isEmpty}>
                             Checkout
                         </button>
                     </div>
@@ -50,24 +83,19 @@ const Checkout = ({ event }) => {
             </form>
             <aside className="check-aside">
                 <img src={logo.url} alt={name.text} />
-                <div className="check-total">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M20 14l2-9H9v1h11.9l-1.7 7.1L7 14V2H2v3h4v12h14v-1H7v-1l13-1zM3 3h3v1H3V3z"
-                        ></path>
-                        <g fillRule="evenodd" clipRule="evenodd">
-                            <path d="M8 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 3c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zM18 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 3c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"></path>
-                        </g>
-                    </svg>
-                </div>
+                <Total
+                    selectedTickets={selectedTickets}
+                    tickets={ticket_classes}
+                    lang={lang}
+                    isEmpty={isEmpty}
+                />
             </aside>
         </section>
     );
 };
 
 Checkout.propTypes = {
+    lang: PropTypes.string,
     event: PropTypes.object
 };
 

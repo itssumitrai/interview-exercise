@@ -1,7 +1,19 @@
 import PropTypes from 'prop-types';
+import Select from './Select';
 
-const TicketItem = ({ ticket, start }) => {
+const TicketItem = ({ index, ticket, start, onChange }) => {
     const { display_name, cost, fee, tax } = ticket;
+    const ticketQuantities = [];
+
+    function onSelectChange(e) {
+        const ticketQuantity = e.target.value;
+        onChange?.(index, ticketQuantity);
+    }
+
+    for (let i = 0; i <= 10; i++) {
+        ticketQuantities[i] = i;
+    }
+
     return (
         <li className="ticket-itm">
             <div className="ticket-desc">
@@ -18,9 +30,13 @@ const TicketItem = ({ ticket, start }) => {
                     </div>
                 </div>
                 <div className="ticket-select">
-                    <select>
-                        <option>0</option>
-                    </select>
+                    <Select value={0} onChange={onSelectChange}>
+                        {ticketQuantities.map((quantity) => (
+                            <option key={quantity} value={quantity}>
+                                {quantity}
+                            </option>
+                        ))}
+                    </Select>
                 </div>
             </div>
             <div className="ticket-status">Sales end on {start.local}</div>
@@ -28,6 +44,8 @@ const TicketItem = ({ ticket, start }) => {
     );
 };
 TicketItem.propTypes = {
+    index: PropTypes.number,
+    onChange: PropTypes.func,
     ticket: PropTypes.object,
     start: PropTypes.object
 };

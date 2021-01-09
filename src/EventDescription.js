@@ -41,7 +41,7 @@ const EventDescription = ({ event, lang }) => {
                 </button>
             </form>
             <Modal isVisible={isModalOpen} onClose={onClose}>
-                <Checkout event={event} />
+                <Checkout event={event} lang={lang} />
             </Modal>
         </>
     );

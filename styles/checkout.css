@@ -29,17 +29,56 @@
     display: flex;
     min-width: 360px;
     flex-direction: column;
+    background-color: var(--backgroundColor);
+}
+.check-total {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 30px;
+    height: 100%;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
 }
 .check-total svg {
     height: 48px;
     width: 48px;
     fill: var(--seperatorColor2);
 }
-.check-total {
+.check-total .empty {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+.check-total .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid var(--seperatorColor);
+    margin-bottom: 16px;
+}
+.check-total .title {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #1e0a3c;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+.check-total .subtotal, .check-total .fees, .check-total .taxes, .check-total .item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.check-total .total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--seperatorColor);
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
 }
 .check-ticketing {
     padding: 0 68px;
