@@ -1,4 +1,5 @@
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -45,12 +46,17 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: 'css-loader'
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
     plugins: [
         isDevelopment && new webpack.HotModuleReplacementPlugin(),
-        isDevelopment && new ReactRefreshWebpackPlugin()
+        isDevelopment && new ReactRefreshWebpackPlugin(),
+        isDevelopment &&
+            new HtmlWebpackPlugin({
+                filename: './index.html',
+                template: './index.html'
+            })
     ].filter(Boolean)
 };
