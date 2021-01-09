@@ -1,0 +1,21 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "prettier/react"],
+    "plugins": ["react", "prettier"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2020": true
+    },
+    "rules": {
+        "react/jsx-uses-react": 0,
+        "react/react-in-jsx-scope": 0,
+        "semi": [2, "always"]
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "latest"
+        }
+    }
+}

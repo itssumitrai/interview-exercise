@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
     const [serverMessage, setServerMessage] = useState('Calling API...');
 
     useEffect(() => {
-        fetch('./api').then(
-            response => response.json()
-        ).then(
-            payload => setServerMessage(payload.message)
-        );
+        fetch('./api')
+            .then((response) => response.json())
+            .then((payload) => setServerMessage(payload.message));
     }, []);
 
     return (
