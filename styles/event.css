@@ -1,0 +1,33 @@
+.ticketBtn {
+    cursor: pointer;
+    background-color: var(--primaryColor);
+    color: white;
+    font-weight: 600;
+    padding: 0 30px;
+    border-radius: 4px;
+    height: 44px;
+    width: 320px;
+    border: 0;
+}
+.ticketBtn:hover {
+    background-color: var(--primaryHoverColor);
+}
+h1 {
+    font-size: 1.5rem;
+}
+.eventContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.ticketForm {
+    display: flex;
+    justify-content: center;
+}
+.eventDesc {
+    padding: 1rem;
+}
+.eventTime {
+    margin-top: 1rem;
+    color: var(--secondaryTextColor);
+}
