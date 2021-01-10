@@ -17,7 +17,7 @@
 }
 .check-article header .event-time {
     color: var(--secondaryTextColor);
-    font-size: .75rem;
+    font-size: 0.75rem;
     line-height: 1rem;
 }
 .check-article h2 {
@@ -65,7 +65,10 @@
     margin-bottom: 24px;
     font-weight: 600;
 }
-.check-total .subtotal, .check-total .fees, .check-total .taxes, .check-total .item {
+.check-total .subtotal,
+.check-total .fees,
+.check-total .taxes,
+.check-total .item {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
@@ -114,7 +117,7 @@
 }
 .attribution a {
     color: var(--secondaryTextColor);
-    font-size: .75rem;
+    font-size: 0.75rem;
     line-height: 1rem;
     text-decoration: none;
     font-weight: 400;
@@ -161,21 +164,20 @@ footer {
 }
 .ticket-cost {
     font-weight: 600;
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1.25rem;
     margin-right: 4px;
 }
 .ticket-fee {
-    font-size: .75rem;
+    font-size: 0.75rem;
     line-height: 1rem;
     margin-right: 4px;
     color: var(--secondaryTextColor);
 }
 .ticket-status {
     color: var(--secondaryTextColor);
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1.25rem;
-    
 }
 .confirmation {
     margin: 10px auto;
@@ -193,7 +195,7 @@ footer {
     font-weight: 400;
 }
 .confirmation dl dd {
-   font-weight: 500;
+    font-weight: 500;
 }
 .confirmation dl div {
     display: flex;

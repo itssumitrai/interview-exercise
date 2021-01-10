@@ -1,6 +1,6 @@
 :root {
-    --primaryColor: #0D8547;
-    --primaryHoverColor: #179C55;
+    --primaryColor: #0d8547;
+    --primaryHoverColor: #179c55;
     --primaryTextColor: #39364f;
     --secondaryTextColor: #6f7287;
     --seperatorColor: #eeedf2;
@@ -47,11 +47,11 @@ body {
     border: 0;
     z-index: 12;
     cursor: pointer;
-    background-color: rgba(248,247,250,.5);
+    background-color: rgba(248, 247, 250, 0.5);
     color: var(--primaryTextColor);
 }
 .modal-closeBtn:hover {
-    background-color: rgba(248,247,250,.9);
+    background-color: rgba(248, 247, 250, 0.9);
 }
 .modal-closeBtn:focus {
     border: 1px solid blue;
