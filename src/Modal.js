@@ -13,7 +13,12 @@ const Modal = ({ children, isVisible, onClose }) => {
     return (
         <div className="modal-overlay">
             <div className="modal-container">
-                <button className="modal-closeBtn" onClick={handleClose} title="Close modal">
+                <button
+                    tabIndex="0"
+                    className="modal-closeBtn"
+                    onClick={handleClose}
+                    title="Close modal"
+                >
                     <svg viewBox="0 0 24 24">
                         <path d="M13.4 12l3.5-3.5-1.4-1.4-3.5 3.5-3.5-3.5-1.4 1.4 3.5 3.5-3.5 3.5 1.4 1.4 3.5-3.5 3.5 3.5 1.4-1.4z"></path>
                     </svg>

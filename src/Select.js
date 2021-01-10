@@ -8,7 +8,7 @@ const Select = ({ className, children, value, onChange }) => {
         onChange?.(e);
     }
     return (
-        <label className={'select-wrapper ' + className}>
+        <label className={'select-wrapper ' + className} tabIndex="0">
             <div className="content">{selectedValue}</div>
             <svg viewBox="0 0 24 24">
                 <path
@@ -17,7 +17,12 @@ const Select = ({ className, children, value, onChange }) => {
                     d="M7 10.2l5 5 5-5-1.4-1.4-3.6 3.6-3.6-3.6z"
                 ></path>
             </svg>
-            <select onChange={handleChange} value={selectedValue} className="hidden-select">
+            <select
+                tabIndex="-1"
+                onChange={handleChange}
+                value={selectedValue}
+                className="hidden-select"
+            >
                 {children}
             </select>
         </label>

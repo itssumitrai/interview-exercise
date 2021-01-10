@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import Select from './Select';
+import { getFormattedDate } from './utils';
 
-const TicketItem = ({ index, ticket, start, onChange }) => {
+const TicketItem = ({ index, ticket, start, lang, onChange }) => {
     const { display_name, cost, fee, tax } = ticket;
     const ticketQuantities = [];
 
@@ -39,11 +40,19 @@ const TicketItem = ({ index, ticket, start, onChange }) => {
                     </Select>
                 </div>
             </div>
-            <div className="ticket-status">Sales end on {start.local}</div>
+            <div className="ticket-status">
+                Sales end on{' '}
+                {getFormattedDate(start.local, lang, {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                })}
+            </div>
         </li>
     );
 };
 TicketItem.propTypes = {
+    lang: PropTypes.string,
     index: PropTypes.number,
     onChange: PropTypes.func,
     ticket: PropTypes.object,

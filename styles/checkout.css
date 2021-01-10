@@ -1,7 +1,7 @@
 .check-container {
     display: flex;
     width: 100%;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
 }
 .check-article {
     display: flex;
@@ -137,24 +137,27 @@ footer {
     padding: 16px 24px;
 }
 .checkoutBtn {
-    border: 2px solid #d1410c;
+    border: 0;
     border-radius: 4px;
     padding: 0 30px;
     line-height: 24px;
     font-weight: 600;
-    height: 44px;
+    height: 46px;
     color: #fff;
     cursor: pointer;
     background-color: #d1410c;
     box-sizing: border-box;
 }
 .checkoutBtn[disabled] {
-    border-color: #f8f7fa;
     color: #a9a8b3;
     cursor: auto;
     background-color: #f8f7fa;
 }
-.ticket-select {
+.checkoutBtn:hover {
+    background-color: #f05537;
+}
+.checkoutBtn[disabled]:hover {
+    background-color: #f8f7fa;
 }
 .ticket-cost {
     font-weight: 600;
@@ -173,6 +176,27 @@ footer {
     font-size: .875rem;
     line-height: 1.25rem;
     
+}
+.confirmation {
+    margin: 10px auto;
+    text-align: left;
+    padding: 15px 44px;
+    width: 100%;
+}
+.confirmation dl {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.confirmation dl dt {
+    margin-right: 10px;
+    font-weight: 400;
+}
+.confirmation dl dd {
+   font-weight: 500;
+}
+.confirmation dl div {
+    display: flex;
 }
 
 @media (min-width: 792px) {

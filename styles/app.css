@@ -53,6 +53,9 @@ body {
 .modal-closeBtn:hover {
     background-color: rgba(248,247,250,.9);
 }
+.modal-closeBtn:focus {
+    border: 1px solid blue;
+}
 .modal-closeBtn:hover svg {
     fill: black;
 }
@@ -70,6 +73,9 @@ body {
     align-items: flex-start;
     box-sizing: border-box;
     border: 1px solid var(--seperatorColor);
+}
+.select-wrapper:focus {
+    border-color: blue;
 }
 .select-wrapper .content {
     font-weight: 400;
